@@ -59,7 +59,7 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor whiteColor];
-    
+    NSLog(@"lalallaala");
     // Do any additional setup after loading the view, typically from a nib.
 }
 #pragma mark 初始化自己的所有子控制器
