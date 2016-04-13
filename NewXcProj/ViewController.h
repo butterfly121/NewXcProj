@@ -1,14 +1,14 @@
 //
 //  ViewController.h
-//  NewXcProj
+//  XcProject
 //
-//  Created by Jason on 16/4/13.
-//  Copyright © 2016年 com.JaosnQJl. All rights reserved.
+//  Created by xhm on 16/4/11.
+//  Copyright © 2016年 xhm. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UITabBarController
 
 
 @end

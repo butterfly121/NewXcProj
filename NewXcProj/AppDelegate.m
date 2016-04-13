@@ -1,13 +1,13 @@
 //
 //  AppDelegate.m
-//  NewXcProj
+//  XcProject
 //
-//  Created by Jason on 16/4/13.
-//  Copyright © 2016年 com.JaosnQJl. All rights reserved.
+//  Created by xhm on 16/4/11.
+//  Copyright © 2016年 xhm. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import "FirstLunchViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,8 +16,40 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    _window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    _window.backgroundColor = [UIColor whiteColor];
+    [_window makeKeyAndVisible];
+    self.window.rootViewController = [[FirstLunchViewController alloc] init];
+    [self baseInit];
     // Override point for customization after application launch.
+    NSLog(@"kkkk");
     return YES;
+}
+-(void)baseInit
+{
+    //增加标识，用于判断是否是第一次启动应用...
+    NSNumber* everLanuched = [[NSUserDefaults standardUserDefaults] objectForKey:@"everLaunched"];
+    if ( ![everLanuched boolValue] )
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLogin"];
+        NSLog(@"first launch");
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLogin"];
+        //        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"everLaunched"];
+        if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"firstLaunch"] boolValue]) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstLaunch"];
+        }else {
+            [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"firstLaunch"];
+        }
+        NSLog(@"second launch");
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
