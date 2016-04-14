@@ -22,7 +22,7 @@
     self.window.rootViewController = [[FirstLunchViewController alloc] init];
     [self baseInit];
     // Override point for customization after application launch.
-    NSLog(@"kkkk");
+    NSLog(@"哈哈哈哈");
     return YES;
 }
 -(void)baseInit
